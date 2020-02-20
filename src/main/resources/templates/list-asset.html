@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+
+    <div class="container my-2">
+    <div class="card">
+    <div class="card-body">
+        <div th:switch="${employees}" class="container my-5">
+            <div class="col-md-10">
+                <h2 th:case="null">No record found !!</h2>
+                <div th:case="*">
+                    <table class="table table-striped table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th>Asset Id</th>
+                                <th>Product</th>
+                                <th>Model</th>
+                                <th>Color</th>
+                                <th>Condition</th>
+                                <th>In Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="employee : ${employees}">
+                                <td>
+                                	<a th:href="@{/edit/{id}(id=${employee.assetId})}" th:text="${employee.assetId}">
+                                	
+                                	</a>
+                                </td>
+                                <td th:text="${employee.productName}"></td>
+                                <td th:text="${employee.modelName}"></td>
+                                <td th:text="${employee.productColor}"></td>
+                                <td th:text="${employee.productCondition}"></td>
+                                <td th:text="${employee.inUse}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

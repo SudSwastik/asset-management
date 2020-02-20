@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+
+
+    <div class="container my-5">
+        <h3> Add Asset</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+<!--                 	<p th:if="${invalidCredentials}" class="error">Invalid Username/Password</p> -->                    <form action="#" th:action="@{/addasset}" th:object="${employee}" method="post">
+                        <div class="row">
+							<div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Asset Id</label> 
+                                <input type="text" th:field="*{assetId}" class="form-control" 
+                                            id="txtAssetID"  />
+                                 <!-- <p th:if="${#fields.hasErrors('assetId')}" th:errors="*{assetId}"
+									class="alert alert-danger"></p>  -->
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Product Name</label> 
+                                <input type="text" th:field="*{productName}" class="form-control" 
+                                            id="txtProduct" />
+                                 <!-- <p th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"
+									class="alert alert-danger"></p>  -->
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Model Name</label> 
+                                <input type="text" th:field="*{modelName}" class="form-control" 
+                                            id="txtModel" />
+                               <!--  <p th:if="${#fields.hasErrors('modelName')}" th:errors="*{modelName}"
+									class="alert alert-danger"></p>  -->
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Product Condition</label> 
+                                <input type="text" th:field="*{productCondition}" class="form-control" 
+                                            id="txtCondition" />
+                                 <!-- <p th:if="${#fields.hasErrors('productCondition')}" th:errors="*{productCondition}"
+									class="alert alert-danger"></p>  -->
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Product Color</label> 
+                                <input type="text" th:field="*{productColor}" class="form-control" 
+                                            id="txtColor"  />
+                                <!--  <p th:if="${#fields.hasErrors('productColor')}" th:errors="*{productColor}"
+									class="alert alert-danger"></p>  -->
+                            </div>
+                            
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">In Use</label><br/>
+                                <select th:field="*{inUse}">
+									<option th:value="Yes">Yes</option>
+									<option th:value="No">No</option>
+								
+								</select>
+                              
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Employee Id</label> 
+                                <input type="text" th:field="*{employeeId}" class="form-control" 
+                                            id="drpEmployeeID"  />
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-primary" value=" Submit ">
+                            </div>
+
+                            <input type="hidden" id="id" th:field="*{id}">
+    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 

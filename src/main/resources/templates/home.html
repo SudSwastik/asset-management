@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+        
+        <div class="col-md-4 text-center">
+        	<a th:href="@{/addemployee}" id="btnAddEmployee" class="btn btn-primary">
+              							Add Employee</a>
+              <a th:href="@{/viewassetlist}" id="btnViewAssets" class="btn btn-primary">
+              							View Access List</a>
+            
+                <a th:href="@{/edit}" id="btnAddAsset" class="btn btn-primary">Add Asset</a>      
+        </div>
+</body>
+</html>

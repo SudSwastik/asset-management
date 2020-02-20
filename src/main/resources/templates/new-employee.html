@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+
+<div class="container my-5">
+        <h3> Add Asset</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                 <div class="row">
+                        
+                        <form th:action="@{/save}" th:object="${employee}" method="POST">
+		
+		
+							<div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Employee Id</label> 
+                                <input id="txtEmployeeID" type="text" placeholder="Employee Id" th:field="*{employeeId}">
+                                 <p th:if="${#fields.hasErrors('employeeId')}" th:errors="*{employeeId}"
+									class="alert alert-danger"></p> 
+                                
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Employee Surname</label> 
+                                <input id="txtSurname" type="text" placeholder="Employee Surname" th:field="*{employeeSurname}">
+                                <p th:if="${#fields.hasErrors('employeeSurname')}" th:errors="*{employeeSurname}"
+									class="alert alert-danger"></p> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Employee Name</label> 
+                                <input id="txtName" type="text" placeholder="Employee Name" th:field="*{employeeName}">
+                                <p th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"
+									class="alert alert-danger"></p> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Mobile Number</label> 
+                                <input id="txtMobile" type="text" placeholder="Mobile Number" th:field="*{mobileNumber}">
+                               	<p th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}"
+									class="alert alert-danger"></p> 
+                                
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Location</label> 
+                                <input id="txtLocation" type="text" placeholder="Location" th:field="*{location}">
+                                <p th:if="${#fields.hasErrors('location')}" th:errors="*{location}"
+									class="alert alert-danger"></p> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Designation</label> 
+                                <input id="txtDesignation" type="text" placeholder="Designation" th:field="*{designation}">
+                                <p th:if="${#fields.hasErrors('designation')}" th:errors="*{designation}"
+									class="alert alert-danger"></p> 
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <input id="addEmployee" type="submit" class="btn btn-primary" value=" Submit ">
+                            </div>
+
+                            <input type="hidden" id="id" th:field="*{id}">
+  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+</body>
+
+</html>
